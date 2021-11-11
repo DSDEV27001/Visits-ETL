@@ -29,17 +29,17 @@ Table currencies [headercolor: #03f4fc] {
   currency_symbol varchar
 }
 
- Table procedures [headercolor: #27ae60] {
+Table procedures [headercolor: #27ae60] {
    procedure_id int [pk, increment]  // auto-increment
    procedure_code varchar
    procedure_desc text
- }
+}
 
- Table hospitals [headercolor: #f39c12] {
+Table hospitals [headercolor: #f39c12] {
   hospital_id_surrogate int [pk, increment]  // auto-increment
   hospital_id int
   hospital_name varchar
- }
+}
 
 Table owners [headercolor: #d35400] {
   owner_id_surrogate int [pk, increment]  // auto-increment
