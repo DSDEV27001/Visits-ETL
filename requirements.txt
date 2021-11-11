@@ -4,22 +4,60 @@
 #
 #    pip-compile requirements.in
 #
+asn1crypto==1.4.0
+    # via scramp
 astroid==2.8.4
     # via pylint
 attrs==21.2.0
     # via pytest
+awswrangler==2.12.1
+    # via -r requirements.in
+bandit==1.7.0
+    # via flake8-bandit
+beautifulsoup4==4.10.0
+    # via redshift-connector
 black==21.10b0
     # via -r requirements.in
 boto3==1.20.3
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   awswrangler
+    #   redshift-connector
 botocore==1.23.3
     # via
+    #   awswrangler
     #   boto3
+    #   redshift-connector
     #   s3transfer
+certifi==2021.10.8
+    # via
+    #   opensearch-py
+    #   requests
+charset-normalizer==2.0.7
+    # via requests
 click==8.0.3
     # via
     #   black
     #   pip-tools
+decorator==5.1.0
+    # via jsonpath-ng
+et-xmlfile==1.1.0
+    # via openpyxl
+flake8==4.0.1
+    # via
+    #   -r requirements.in
+    #   flake8-bandit
+    #   flake8-polyfill
+flake8-bandit==2.1.2
+    # via -r requirements.in
+flake8-polyfill==1.0.2
+    # via flake8-bandit
+gitdb==4.0.9
+    # via gitpython
+gitpython==3.1.24
+    # via bandit
+idna==3.3
+    # via requests
 iniconfig==1.1.1
     # via pytest
 isort==5.10.1
@@ -28,22 +66,45 @@ jmespath==0.10.0
     # via
     #   boto3
     #   botocore
+jsonpath-ng==1.5.3
+    # via awswrangler
 lazy-object-proxy==1.6.0
     # via astroid
+lizard==1.17.9
+    # via -r requirements.in
+lxml==4.6.4
+    # via redshift-connector
 mccabe==0.6.1
-    # via pylint
+    # via
+    #   flake8
+    #   pylint
 mypy-extensions==0.4.3
     # via black
 numpy==1.21.4
-    # via pandas
+    # via
+    #   awswrangler
+    #   pandas
+    #   pyarrow
+openpyxl==3.0.9
+    # via awswrangler
+opensearch-py==1.0.0
+    # via awswrangler
 packaging==21.2
-    # via pytest
+    # via
+    #   pytest
+    #   redshift-connector
 pandas==1.3.4
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   awswrangler
 pathspec==0.9.0
     # via black
+pbr==5.7.0
+    # via stevedore
 pep517==0.12.0
     # via pip-tools
+pg8000==1.21.3
+    # via awswrangler
 pip-tools==6.4.0
     # via -r requirements.in
 platformdirs==2.4.0
@@ -52,10 +113,24 @@ platformdirs==2.4.0
     #   pylint
 pluggy==1.0.0
     # via pytest
+ply==3.11
+    # via jsonpath-ng
+progressbar2==3.55.0
+    # via awswrangler
 py==1.11.0
     # via pytest
+pyarrow==5.0.0
+    # via awswrangler
+pycodestyle==2.8.0
+    # via
+    #   flake8
+    #   flake8-bandit
+pyflakes==2.4.0
+    # via flake8
 pylint==2.11.1
     # via -r requirements.in
+pymysql==1.0.2
+    # via awswrangler
 pyparsing==2.4.7
     # via packaging
 pytest==6.2.5
@@ -64,14 +139,44 @@ python-dateutil==2.8.2
     # via
     #   botocore
     #   pandas
+python-utils==2.5.6
+    # via progressbar2
 pytz==2021.3
-    # via pandas
+    # via
+    #   pandas
+    #   redshift-connector
+pyyaml==6.0
+    # via bandit
+redshift-connector==2.0.889
+    # via awswrangler
 regex==2021.11.10
     # via black
+requests==2.26.0
+    # via
+    #   redshift-connector
+    #   requests-aws4auth
+requests-aws4auth==1.1.1
+    # via awswrangler
 s3transfer==0.5.0
     # via boto3
+scramp==1.4.1
+    # via
+    #   pg8000
+    #   redshift-connector
 six==1.16.0
-    # via python-dateutil
+    # via
+    #   bandit
+    #   jsonpath-ng
+    #   progressbar2
+    #   python-dateutil
+    #   python-utils
+    #   requests-aws4auth
+smmap==5.0.0
+    # via gitdb
+soupsieve==2.3.1
+    # via beautifulsoup4
+stevedore==3.5.0
+    # via bandit
 toml==0.10.2
     # via
     #   pylint
@@ -84,9 +189,13 @@ typing-extensions==3.10.0.2
     # via
     #   astroid
     #   black
+    #   gitpython
     #   pylint
 urllib3==1.26.7
-    # via botocore
+    # via
+    #   botocore
+    #   opensearch-py
+    #   requests
 wheel==0.37.0
     # via pip-tools
 wrapt==1.13.3

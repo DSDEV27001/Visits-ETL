@@ -1,6 +1,10 @@
-pip-tools
+awswrangler
 black
+boto3
+flake8
+flake8-bandit
+lizard
+pandas
+pip-tools
 pylint
 pytest
-boto3
-pandas

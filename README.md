@@ -19,7 +19,7 @@ Assumption that the model is being built for Senior Management to get a holistic
 
 ### 4.2 Grain
 
-An individual pet hospital visit, billed in a specified currency with a visit cost equal to the total cost of all procedures carried out at that visit, for an owners pet of a given species and breed.
+An individual pet hospital visit, billed in a specified currency with a visit cost equal to the total cost of the procedure carried out at that visit, for an owners pet of a given species and breed.
 
 ### 4.3 Dimensions and facts
 
@@ -31,14 +31,15 @@ These are outlined in the next section diagram.
 
 ## 6. Stakeholder Q's
 
-    1. Ask about what sort of analysis is required to establish the facts  e.g. averages, counts, total, KPIs and other derived figures
+    1. Ask about what sort of analysis is required  e.g. averages, counts, totals, KPIs and other derived figures
     2. Procedure list including cost - fixed per currency or not?
     3. Hospital List
-    4. What currencies are visits currently billed in? 
-    5. Are exchange rates required / available to show global revenue?
-    6. Interest in owner geolocations?
+    4. What currencies are visits currently billed in? Is it a single currency per hospital based on location?
+    5. Are exchange rates required / available?
+    6. Interest in owner geolocations and analysis?
 
 ## 7. Other Assumptions
 
-    1. The grain is at the visit level since no procedure costs are provided although ideally you would design at the procedure level if this information was available
-    2. The procedures and costs of scheduled future visits (e.g. those in the data in 2022) are fixed so they don't need to be treated differently to prior visits
+    1. Only one procedure per visit
+    2. Visits can't overlap
+    2. The procedure and cost of scheduled future visits (e.g. those in the data in 2022) are fixed so they don't need to be treated differently to prior visits
