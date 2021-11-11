@@ -4,6 +4,7 @@
 // Creating tables
 Table facts [headercolor: #8e44ad] {
   fact_id int [pk, increment] // auto-increment
+  currency_id int
   procedure_id int
   hospital_id_surrogate int
   owner_id_surrogate int
@@ -11,8 +12,8 @@ Table facts [headercolor: #8e44ad] {
   pet_id_surrogate int
   species_id int
   breed_id int
-  averages_counts_and_totals float
-  kpis_and_other_derived_figures float
+  averages_counts_and_totals decimal
+  kpis_and_other_derived_figures decimal
 }
 
 Table visits [headercolor: #3498db] {
@@ -20,52 +21,56 @@ Table visits [headercolor: #3498db] {
   visit_id int
   visit_start_date date
   visit_end_date date
-  visit_currency varchar(1)
   visit_cost float
  }
 
+Table currencies [headercolor: #03f4fc] {
+  currency_id int [pk, increment]
+  currency_symbol varchar
+}
+
  Table procedures [headercolor: #27ae60] {
    procedure_id int [pk, increment]  // auto-increment
-   procedure_code varchar (15)
-   procedure_desc varchar (255)
+   procedure_code varchar
+   procedure_desc text
  }
 
  Table hospitals [headercolor: #f39c12] {
   hospital_id_surrogate int [pk, increment]  // auto-increment
   hospital_id int
-  hospital varchar (255)
+  hospital_name varchar
  }
 
 Table owners [headercolor: #d35400] {
   owner_id_surrogate int [pk, increment]  // auto-increment
   owner_id int
-  first_name varchar (50)
-  last_name varchar (50)
-  email varchar (150)
+  first_name varchar
+  last_name varchar
+  email varchar
 }
 
 Table addresses [headercolor: #c0392b] {
   address_id int [pk, increment]  // auto-increment
-  postcode varchar (15)
-  address varchar (255)
-  city varchar (50)
+  postcode varchar
+  address text
+  city varchar
 }
 
 Table pets [headercolor: #2c3e50] {
   pet_id_surrogate int [pk, increment]  // auto-increment
   pet_id int
-  pet_name varchar (50)
+  pet_name varchar
   pet_dob date
 }
 
 Table species [headercolor: #316896] {
   species_id int [pk, increment]  // auto-increment
-  species varchar (50)
+  species varchar
 }
 
-Table breed [headercolor: #16a085] {
+Table breeds [headercolor: #16a085] {
   breed_id int [pk, increment]  // auto-increment
-  breed varchar (150)
+  breed varchar
 }
 
 // Creating references
@@ -73,9 +78,10 @@ Table breed [headercolor: #16a085] {
 // > many-to-one; < one-to-many; - one-to-one
 Ref: visits.visit_id_surrogate - facts.fact_id
 Ref: facts.procedure_id > procedures.procedure_id
+Ref: facts.currency_id > currencies.currency_id
 Ref: facts.hospital_id_surrogate > hospitals.hospital_id_surrogate
 Ref: facts.owner_id_surrogate > owners.owner_id_surrogate
 Ref: facts.address_id > addresses.address_id
 Ref: facts.pet_id_surrogate > pets.pet_id_surrogate
 Ref: facts.species_id > species.species_id
-Ref: facts.breed_id > breed.breed_id
+Ref: facts.breed_id > breeds.breed_id
