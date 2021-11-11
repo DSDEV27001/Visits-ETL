@@ -104,6 +104,7 @@ def main():
     visits_s3_parquet_path = f"{model_s3_path}visits-table.prq"
     glue_database = "visits"
     model_table = "visits"
+    # TODO: add id's and fields and create_parquet_table_from_sql for all dimensions as per ER diagram
     visit_table_id_name = "`visit_id_surrogate`"
     visit_table_fields = "`visit_id`,`visit_start_date`,`visit_end_date`,`visit_cost`"
     session = get_aws_session()
