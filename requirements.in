@@ -1,0 +1,6 @@
+pip-tools
+black
+pylint
+pytest
+boto3
+pandas
