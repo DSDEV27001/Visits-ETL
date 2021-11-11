@@ -106,10 +106,11 @@ def main():
     model_table = "visits"
     visit_table_id_name = "`visit_id_surrogate`"
     visit_table_fields = "`visit_id`,`visit_start_date`,`visit_end_date`,`visit_cost`"
+    session = get_aws_session()
     # Reads excel file into a pandas dataframe
     visits_df = get_excel_data_df(model_filename)
     # Writes df to csv file in s3 bucket
-    write_df_to_parquet(visits_df, model_s3_parquet_path)
+    write_df_to_parquet(visits_df, model_s3_parquet_path, session)
     # Create glue database
     create_database(glue_database)
     # Extract the column names and types
