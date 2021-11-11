@@ -7,7 +7,9 @@ import pandas as pd
 logger = logging.getLogger("etl")
 
 
-#  TODO: error handling, testing
+#  TODO: error handling, testing, CI
+
+
 def get_excel_data_df(filename: str):
     # TODO: csv parameters
     """read excel file into a DataFrame"""
@@ -42,21 +44,21 @@ def get_column_types(df: pd.DataFrame, file_format: str, index: bool = False):
 def create_db_table(table: str, database: str, path: str, column_types):
     """Creates a Glue table in the database from the file"""
     wr.catalog.create_csv_table(
-       table=table,
-       database=database,
-       path=path,
-       columns_types=column_types
+        table=table, database=database, path=path, columns_types=column_types
     )
 
+
 def main():
-    model_filename="./modelling-1.xlsx"
-    model_s3_csv_path="s3://wr-visits/visits/visits.csv"
-    glue_database="visits"
-    table="visits"
+    model_filename = "./modelling-1.xlsx"
+    model_s3_csv_path = "s3://wr-visits/visits/visits.csv"
+    glue_database = "visits"
+    table = "visits"
     visits_df = get_excel_data_df(model_filename)
     write_df_to_csv(visits_df, model_s3_csv_path)
     create_database(glue_database)
-    column_types = get_column_types(visits_df,"csv")
+    column_types = get_column_types(visits_df, "csv")
     create_db_table(table, glue_database, model_s3_csv_path)
+
+
 if __name__ == "__main__":
     main()
