@@ -43,3 +43,11 @@ These are outlined in the next section diagram.
     1. Only one procedure per visit
     2. Visits can't overlap
     2. The procedure and cost of scheduled future visits (e.g. those in the data in 2022) are fixed so they don't need to be treated differently to prior visits
+
+## 8. Further steps
+
+   1. Data cleaning / validation - e.g. check types, formats for dates, visit cost, etc
+   2. Add error handling for all functions
+   3. Set up AWS account and test
+   4. Build unit and integration tests using pytest
+   5. CI using black, pylint, lizard, flake8, bandit, and pytest
