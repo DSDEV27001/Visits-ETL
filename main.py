@@ -76,11 +76,14 @@ def create_db_table(table: str, database: str, path: str, column_types):
     )
 
 
-def create_parquet_table_from_sql(id_name: str, fields: str, s3_path: str):
+def create_parquet_table_from_sql(
+    table_name: str, id_name: str, fields: str, s3_path: str
+):
     """Create parquet file"""
+    # TODO: Add ability to group by specified fields
     sql = f""" 
 
-    CREATE TABLE IF NOT EXISTS visits_parq ({id_name} INT AUTO_INCREMENT PRIMARY KEY)
+    CREATE TABLE IF NOT EXISTS {table_name} ({id_name} INT AUTO_INCREMENT PRIMARY KEY)
 
        WITH (format='PARQUET', external_location={s3_path}) AS 
 
@@ -120,7 +123,7 @@ def main():
     create_db_table(model_table, glue_database, model_s3_parquet_path, column_types)
     # Creates parquet file
     parquet_df = create_parquet_table_from_sql(
-        visit_table_id_name, visit_table_fields, visits_s3_parquet_path
+        "visits_parq", visit_table_id_name, visit_table_fields, visits_s3_parquet_path
     )
 
 
