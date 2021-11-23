@@ -46,7 +46,7 @@ These are outlined in the next section diagram.
 
 ## 8. Further steps
 
-   1. Data cleaning / validation - e.g. check types, formats for dates, visit cost, etc
+   1. Data cleaning / validation - e.g. deduplication, check types, formats for dates, visit cost, etc
    2. Add error handling for all functions
    3. Set up AWS account and test
    4. Build unit and integration tests using pytest
