@@ -7,8 +7,11 @@ import botocore.exceptions as be
 
 logger = logging.getLogger("etl")
 
+# TODO: logging - what important data to log
+# TODO: handling reruns - remove outputs of a given rerun and set up another - store batch id
+# TODO: schema management - how to reprocess old data after a schema change - schema versioning or super schema that supports change?
 # TODO: add error handling for all functions
-# TODO: testing using pytest
+# TODO: testing using pytest - create fixtures to test functions, etc
 # TODO: CI using black, pylint, lizard, flake8, bandit, and pytest
 
 
@@ -34,7 +37,7 @@ def get_aws_session():
 
 
 def get_excel_data_df(filename: str):
-    # TODO: excel parameters
+    # TODO: excel parameters for dtype
     """read excel file into a DataFrame"""
     input_df = pd.read_excel(filename)
     return input_df
